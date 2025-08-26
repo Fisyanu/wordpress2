@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FAQ — DocuShop Template</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script defer src="assets/js/main.js"></script>
+    <style>
+      .accordion { display: grid; gap: 8px; margin: 20px 0 40px; }
+      .accordion-item { border: 1px solid var(--border); border-radius: 10px; background: #fff; }
+      .accordion-button { width: 100%; text-align: left; padding: 12px 14px; background: none; border: 0; font: inherit; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+      .accordion-panel { display: none; padding: 0 14px 14px; color: var(--muted); }
+      .accordion-item.open .accordion-panel { display: block; }
+    </style>
+  </head>
+  <body>
+    <div class="notice-bar">
+      <div class="container">
+        <span>Demo store — placeholder content only. Enjoy 10% off your first order when you subscribe.</span>
+        <a href="#learn-more" class="link">Learn more</a>
+      </div>
+    </div>
+    <div class="site-nav-bar">
+      <div class="container">
+        <ul class="menu" id="primary-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="faq.html" class="active">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <main class="container" style="padding:20px 0 40px;">
+      <h1>Frequently Asked Questions</h1>
+        <div class="product-grid">
+          <div class="product-card">
+            <img src="assets/image/faq1.jpg" alt="FAQ 1" class="product-img" />
+            <h2 class="product-title">Is delivery discreet?</h2>
+            <p class="product-desc">Yes, all orders are shipped in plain packaging with no indication of contents.</p>
+            <button class="quick-review-btn" onclick="openModal('faq1')">Quick Review</button>
+          </div>
+          <div class="product-card">
+            <img src="assets/image/faq2.jpg" alt="FAQ 2" class="product-img" />
+            <h2 class="product-title">How long does shipping take?</h2>
+            <p class="product-desc">Shipping times vary by location, but most orders arrive within 3-7 business days.</p>
+            <button class="quick-review-btn" onclick="openModal('faq2')">Quick Review</button>
+          </div>
+          <div class="product-card">
+            <img src="assets/image/faq3.jpg" alt="FAQ 3" class="product-img" />
+            <h2 class="product-title">Are your products guaranteed?</h2>
+            <p class="product-desc">We guarantee the quality and authenticity of all our products. Satisfaction is our priority.</p>
+            <button class="quick-review-btn" onclick="openModal('faq3')">Quick Review</button>
+          </div>
+          <div class="product-card">
+            <img src="assets/image/faq4.jpg" alt="FAQ 4" class="product-img" />
+            <h2 class="product-title">Sample Product: Fake Utility Bill</h2>
+            <p class="product-desc">Get a realistic utility bill for proof of address or verification purposes.</p>
+            <button class="quick-review-btn" onclick="openModal('faq4')">Quick Review</button>
+          </div>
+          <div class="product-card">
+            <img src="assets/image/faq5.jpg" alt="FAQ 5" class="product-img" />
+            <h2 class="product-title">Sample Product: Novelty Birth Certificate</h2>
+            <p class="product-desc">Order a novelty birth certificate for entertainment or replacement needs.</p>
+            <button class="quick-review-btn" onclick="openModal('faq5')">Quick Review</button>
+          </div>
+        </div>
+        <div id="modal" class="modal" style="display:none;">
+          <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
+          </div>
+        </div>
+        <script>
+          function openModal(type) {
+            var body = document.getElementById('modal-body');
+            if(type === 'faq1') {
+              body.innerHTML = '<h2>Is delivery discreet?</h2><p>Yes, all orders are shipped in plain packaging with no indication of contents.</p>';
+            } else if(type === 'faq2') {
+              body.innerHTML = '<h2>How long does shipping take?</h2><p>Shipping times vary by location, but most orders arrive within 3-7 business days.</p>';
+            } else if(type === 'faq3') {
+              body.innerHTML = '<h2>Are your products guaranteed?</h2><p>We guarantee the quality and authenticity of all our products. Satisfaction is our priority.</p>';
+            } else if(type === 'faq4') {
+              body.innerHTML = '<h2>Fake Utility Bill</h2><p>Get a realistic utility bill for proof of address or verification purposes. Customizable and fast delivery.</p>';
+            } else if(type === 'faq5') {
+              body.innerHTML = '<h2>Novelty Birth Certificate</h2><p>Order a novelty birth certificate for entertainment or replacement needs. High quality and authentic look.</p>';
+            }
+            document.getElementById('modal').style.display = 'block';
+          }
+          function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+          }
+        </script>
+    </main>
+
+    <footer class="black-logo-section">
+      <div class="black-logo-row">
+        <div class="black-logo-left">
+          <img src="assets/image/logo.png" alt="Logo" class="black-logo-img" />
+        </div>
+        <div class="black-logo-content">
+          <h2 class="black-logo-title">Submit</h2>
+          <p class="black-logo-desc">We’re a team of experts who specialize in providing reliable, high-quality document solutions, including both registered and unregistered documents (real/fake).</p>
+          <div class="black-logo-list">
+            <a href="shop.html#clone-cards">Clone Cards <strong>44 products</strong></a>
+            <a href="shop.html#devices">Devices <strong>1414 products</strong></a>
+            <a href="shop.html#card-skimmers">Card Skimmers <strong>99 products</strong></a>
+            <a href="shop.html#software">Software <strong>44 products</strong></a>
+            <a href="shop.html#documents">Documents <strong>88 products</strong></a>
+            <a href="shop.html#counterfeit-notes">Quality Counterfeit Notes <strong>1212 products</strong></a>
+            <a href="shop.html#ssd-chemicals">SSD Chemicals <strong>55 products</strong></a>
+          </div>
+          <div class="black-logo-links">
+            <a href="about.html">About Us</a>
+            <a href="cart.html">Cart</a>
+            <a href="checkout.html">Checkout</a>
+            <a href="contact.html">Contact</a>
+            <a href="faq.html">FAQ</a>
+            <a href="index.html">Home</a>
+            <a href="order.html">How To Order</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="shop.html">Shop</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="modal" id="login-modal" role="dialog" aria-modal="true" aria-labelledby="login-title" hidden>
+      <div class="modal-backdrop" data-login-close></div>
+      <div class="modal-dialog"><button class="modal-close" aria-label="Close" data-login-close>×</button><h3 id="login-title">Login</h3><form id="login-form"><label>Email or Username</label><input type="text" required /><label>Password</label><input type="password" required /><div class="form-row"><label class="checkbox"><input type="checkbox" /> Remember me</label><a href="#" class="link">Forgot password?</a></div><button type="submit" class="btn primary full">Log In</button></form></div>
+    </div>
+    <script>
+      document.querySelectorAll('.accordion-button').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          const item = btn.closest('.accordion-item');
+          const open = item.classList.contains('open');
+          document.querySelectorAll('.accordion-item').forEach(function(i){ i.classList.remove('open'); i.querySelector('.accordion-button').setAttribute('aria-expanded','false'); });
+          if (!open) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+        });
+      });
+    </script>
+  </body>
+</html>
+
+

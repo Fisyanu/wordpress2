@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How To Order — DocuShop</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="notice-bar">
+    <div class="container">
+      <span>Demo store — placeholder content only. Enjoy 10% off your first order when you subscribe.</span>
+      <a href="#learn-more" class="link">Learn more</a>
+    </div>
+  </div>
+  <div class="site-nav-bar">
+    <div class="container">
+      <ul class="menu" id="primary-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="clone-cards.html">CLONE CARDS</a></li>
+        <li class="has-submenu" aria-expanded="false">
+          <a href="#">COUNTERFEIT NOTES</a>
+          <ul class="submenu">
+            <li><a href="us-dollar-bills.html">Buy Counterfeit US Dollar Bills</a></li>
+            <li><a href="euro-bills.html">Buy Counterfeit Euro Bills</a></li>
+            <li><a href="british-pounds.html">Buy Counterfeit British Pounds</a></li>
+            <li><a href="australian-dollars.html">Buy Counterfeit Australian Dollars</a></li>
+            <li><a href="canadian-dollars.html">Buy Counterfeit Canadian Dollars</a></li>
+            <li><a href="swiss-franc.html">Buy Counterfeit Swiss Franc</a></li>
+            <li><a href="kuwaiti-dinar.html">Buy Counterfeit Kuwaiti Dinar</a></li>
+          </ul>
+        </li>
+        <li><a href="documents.html">DOCUMENTS</a></li>
+        <li><a href="how-to-order.html">HOW TO ORDER</a></li>
+        <li><a href="reviews.html">REVIEWS</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="checkout.html" style="background:#e53935;color:#fff;border-radius:6px;padding:8px 18px;font-weight:700;">CheckOut</a></li>
+      </ul>
+    </div>
+  </div>
+  <main class="container" style="padding:40px 0;">
+    <h1>How To Order</h1>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="assets/image/order-step1.jpg" alt="Step 1" class="product-img" />
+        <h2 class="product-title">Step 1: Select Product</h2>
+        <p class="product-desc">Browse our categories and select the product you want to order. Click on Quick Review for more details.</p>
+        <button class="quick-review-btn" onclick="openModal('step1')">Quick Review</button>
+      </div>
+      <div class="product-card">
+        <img src="assets/image/order-step2.jpg" alt="Step 2" class="product-img" />
+        <h2 class="product-title">Step 2: Place Order</h2>
+        <p class="product-desc">Add your selected product to cart and proceed to checkout. Fill in your details accurately.</p>
+        <button class="quick-review-btn" onclick="openModal('step2')">Quick Review</button>
+      </div>
+      <div class="product-card">
+        <img src="assets/image/order-step3.jpg" alt="Step 3" class="product-img" />
+        <h2 class="product-title">Step 3: Payment & Delivery</h2>
+        <p class="product-desc">Complete payment using secure methods. Your order will be processed and shipped discreetly.</p>
+        <button class="quick-review-btn" onclick="openModal('step3')">Quick Review</button>
+      </div>
+    </div>
+    <div id="modal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+    <script>
+      function openModal(type) {
+        var body = document.getElementById('modal-body');
+        if(type === 'step1') {
+          body.innerHTML = '<h2>Step 1: Select Product</h2><p>Browse our categories and select the product you want to order. Use Quick Review for more information about each product.</p>';
+        } else if(type === 'step2') {
+          body.innerHTML = '<h2>Step 2: Place Order</h2><p>Add your selected product to cart and proceed to checkout. Fill in your details accurately for smooth processing.</p>';
+        } else if(type === 'step3') {
+          body.innerHTML = '<h2>Step 3: Payment & Delivery</h2><p>Complete payment using secure methods. Your order will be processed and shipped discreetly to your address.</p>';
+        }
+        document.getElementById('modal').style.display = 'block';
+      }
+      function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+      }
+    </script>
+  </main>
+  <footer class="black-logo-section">
+    <div class="black-logo-row">
+      <div class="black-logo-left">
+        <img src="assets/image/logo.png" alt="Logo" class="black-logo-img" />
+      </div>
+      <div class="black-logo-content">
+        <h2 class="black-logo-title">Submit</h2>
+        <p class="black-logo-desc">We’re a team of experts who specialize in providing reliable, high-quality document solutions, including both registered and unregistered documents (real/fake).</p>
+        <div class="black-logo-list">
+          <a href="devices.html">Devices <strong>3 products</strong></a>
+          <a href="card-skimmers.html">Card Skimmers <strong>3 products</strong></a>
+          <a href="money-cleaning-machines.html">Money Cleaning Machines <strong>3 products</strong></a>
+          <a href="ssd-chemicals.html">SSD Chemicals <strong>3 products</strong></a>
+        </div>
+        <div class="black-logo-links">
+          <a href="about.html">About Us</a>
+          <a href="cart.html">Cart</a>
+          <a href="checkout.html">Checkout</a>
+          <a href="contact.html">Contact</a>
+          <a href="faq.html">FAQ</a>
+          <a href="index.html">Home</a>
+          <a href="order.html">How To Order</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="shop.html">Shop</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

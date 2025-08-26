@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SSD Chemicals — DocuShop</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <!-- ...header and nav copied from index.html... -->
+  <div class="notice-bar">
+    <div class="container">
+      <span>Demo store — placeholder content only. Enjoy 10% off your first order when you subscribe.</span>
+      <a href="#learn-more" class="link">Learn more</a>
+    </div>
+  </div>
+  <div class="site-nav-bar">
+    <div class="container">
+      <ul class="menu" id="primary-menu">
+        <li><a href="index.html">Home</a></li>
+        <li class="has-submenu" aria-expanded="false">
+          <a href="shop.html">Shop</a>
+          <ul class="submenu">
+            <li><a href="devices.html">Devices</a></li>
+            <li><a href="card-skimmers.html">Card Skimmers</a></li>
+            <li><a href="money-cleaning-machines.html">Money Cleaning Machines</a></li>
+            <li><a href="ssd-chemicals.html">SSD Chemicals</a></li>
+          </ul>
+        </li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <main class="container" style="padding:40px 0;">
+    <h1>SSD Chemicals</h1>
+    <div class="product-grid">
+      <article class="product">
+        <div class="thumb"></div>
+        <h3>Premium SSD Solution</h3>
+        <p class="price">$299.00</p>
+        <button class="btn add">Add to cart</button>
+        <button class="btn" data-quick-review data-product="ssd">Quick Review</button>
+      </article>
+      <article class="product">
+        <div class="thumb"></div>
+        <h3>Universal Cleaning Chemical</h3>
+        <p class="price">$199.00</p>
+        <button class="btn add">Add to cart</button>
+        <button class="btn" data-quick-review data-product="cleaning">Quick Review</button>
+      </article>
+      <article class="product">
+        <div class="thumb"></div>
+        <h3>Advanced Activation Powder</h3>
+        <p class="price">$249.00</p>
+        <button class="btn add">Add to cart</button>
+        <button class="btn" data-quick-review data-product="powder">Quick Review</button>
+      </article>
+    </div>
+  </main>
+  <!-- ...footer copied from index.html... -->
+  <footer class="black-logo-section">
+    <div class="black-logo-row">
+      <div class="black-logo-left">
+        <img src="assets/image/logo.png" alt="Logo" class="black-logo-img" />
+      </div>
+      <div class="black-logo-content">
+        <h2 class="black-logo-title">Submit</h2>
+        <p class="black-logo-desc">We’re a team of experts who specialize in providing reliable, high-quality document solutions, including both registered and unregistered documents (real/fake).</p>
+        <div class="black-logo-list">
+          <a href="devices.html">Devices <strong>3 products</strong></a>
+          <a href="card-skimmers.html">Card Skimmers <strong>3 products</strong></a>
+          <a href="money-cleaning-machines.html">Money Cleaning Machines <strong>3 products</strong></a>
+          <a href="ssd-chemicals.html">SSD Chemicals <strong>3 products</strong></a>
+        </div>
+        <div class="black-logo-links">
+          <a href="about.html">About Us</a>
+          <a href="cart.html">Cart</a>
+          <a href="checkout.html">Checkout</a>
+          <a href="contact.html">Contact</a>
+          <a href="faq.html">FAQ</a>
+          <a href="index.html">Home</a>
+          <a href="order.html">How To Order</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="shop.html">Shop</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<!-- Quick Review Modal -->
+<div class="modal" id="quick-review-modal" style="display:none;">
+  <div class="modal-backdrop" id="quick-review-backdrop"></div>
+  <div class="modal-dialog">
+    <button class="modal-close" id="quick-review-close" aria-label="Close">×</button>
+    <div id="quick-review-content"></div>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Shop submenu dropdown
+  var shopMenu = document.querySelector('.has-submenu > a');
+  var shopSubmenu = document.querySelector('.has-submenu .submenu');
+  var shopLi = document.querySelector('.has-submenu');
+  if (shopMenu && shopSubmenu && shopLi) {
+    shopMenu.addEventListener('click', function(e) {
+      e.preventDefault();
+      var expanded = shopLi.getAttribute('aria-expanded') === 'true';
+      shopLi.setAttribute('aria-expanded', String(!expanded));
+      shopLi.classList.toggle('open');
+    });
+    document.addEventListener('click', function(e) {
+      if (!shopLi.contains(e.target)) {
+        shopLi.setAttribute('aria-expanded', 'false');
+        shopLi.classList.remove('open');
+      }
+    });
+  }
+
+  // Quick Review modal logic
+  var modal = document.getElementById('quick-review-modal');
+  var backdrop = document.getElementById('quick-review-backdrop');
+  var closeBtn = document.getElementById('quick-review-close');
+  var content = document.getElementById('quick-review-content');
+  var reviews = {
+    ssd: '<h2>Premium SSD Solution</h2><p>High-quality SSD chemical for cleaning black notes. <strong>Volume:</strong> 500ml</p><ul><li>Effective cleaning</li><li>Safe formula</li><li>Fast results</li></ul>',
+    cleaning: '<h2>Universal Cleaning Chemical</h2><p>Multi-purpose cleaning chemical for all currencies. <strong>Volume:</strong> 1L</p><ul><li>Universal use</li><li>Non-toxic</li><li>Easy application</li></ul>',
+    powder: '<h2>Advanced Activation Powder</h2><p>Activates SSD solution for best results. <strong>Weight:</strong> 100g</p><ul><li>High activation</li><li>Long shelf life</li><li>Easy to use</li></ul>'
+  };
+  document.querySelectorAll('[data-quick-review]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var type = btn.getAttribute('data-product');
+      content.innerHTML = reviews[type] || '<h2>Product Preview</h2><p>No details available.</p>';
+      modal.style.display = 'block';
+    });
+  });
+  [closeBtn, backdrop].forEach(function(el) {
+    el.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var shopMenu = document.querySelector('.has-submenu > a');
+  var shopSubmenu = document.querySelector('.has-submenu .submenu');
+  var shopLi = document.querySelector('.has-submenu');
+  if (shopMenu && shopSubmenu && shopLi) {
+    shopMenu.addEventListener('click', function(e) {
+      e.preventDefault();
+      var expanded = shopLi.getAttribute('aria-expanded') === 'true';
+      shopLi.setAttribute('aria-expanded', String(!expanded));
+      shopLi.classList.toggle('open');
+    });
+    document.addEventListener('click', function(e) {
+      if (!shopLi.contains(e.target)) {
+        shopLi.setAttribute('aria-expanded', 'false');
+        shopLi.classList.remove('open');
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>
