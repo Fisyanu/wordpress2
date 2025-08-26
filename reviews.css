@@ -1,7 +1,7 @@
 /* Review Board Styles */
 .review-board {
   padding: 60px 0;
-  background: var(--surface);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
 .review-board-container {
@@ -107,14 +107,85 @@
   line-height: 1.6;
 }
 
+/* Responsive design for reviews */
 @media (max-width: 768px) {
+  .review-board {
+    padding: 40px 0;
+  }
+
+  .review-board-container {
+    padding: 0 15px;
+  }
+
+  .review-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .review-rating-summary {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .review-stars-large {
+    font-size: 2rem;
+  }
+
+  .review-score {
+    font-size: 1.5rem;
+  }
+
+  .review-count {
+    font-size: 0.9rem;
+  }
+
   .reviews-list-horizontal {
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
   }
-  
+
   .review-card {
-    flex: none;
+    margin: 0;
+    min-width: auto;
     width: 100%;
+  }
+
+  .review-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .review-card-profile img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .review-board {
+    padding: 30px 0;
+  }
+
+  .review-title {
+    font-size: 1.75rem;
+    text-align: center;
+  }
+
+  .review-summary-desc {
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .review-card {
+    padding: 15px;
+  }
+
+  .review-card-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 }

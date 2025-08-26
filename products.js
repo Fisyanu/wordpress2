@@ -1,167 +1,107 @@
 // Professional E-commerce Product Management
-"use strict"; with improved structure
-const products = {
-    "counterfeit-notes": [
-        {
-            id: "usd-100",
-            name: "USD 100 Bills",
-            price: "$1500",
-            category: "counterfeit-notes",
-            image: "usd-100.jpg",
-            description: "High quality USD 100 bills with latest security features"
-        },
-        {
-            id: "eur-500",
-            name: "EUR 500 Notes",
-            price: "$2000",
-            category: "counterfeit-notes",
-            image: "eur-500.jpg",
-            description: "Premium quality EUR 500 notes"
-        },
-        {
-            id: "gbp-50",
-            name: "GBP 50 Notes",
-            price: "$1800",
-            category: "counterfeit-notes",
-            image: "gbp-50.jpg",
-            description: "High quality British Pound notes"
-        }
-    ],
-    "clone-cards": [
-        {
-            id: "visa-platinum",
-            name: "Visa Platinum Card",
-            price: "$800",
-            category: "clone-cards",
-            image: "visa-platinum.jpg",
-            description: "Premium Visa Platinum clone card"
-        },
-        {
-            id: "mastercard-black",
-            name: "Mastercard Black",
-            price: "$900",
-            category: "clone-cards",
-            image: "mastercard-black.jpg",
-            description: "Elite Mastercard Black clone card"
-        }
-    ],
-    "documents": [
-        {
-            id: "passport",
-            name: "International Passport",
-            price: "$2500",
-            category: "documents",
-            image: "passport.jpg",
-            description: "High quality passport with all security features"
-        },
-        {
-            id: "drivers-license",
-            name: "Driver's License",
-            price: "$1200",
-            category: "documents",
-            image: "license.jpg",
-            description: "Authentic looking driver's license"
-        }
-    ]
+"use strict";
+
+// Product data and management
+const productData = {
+  all: [
+    {
+      id: 'passport',
+      name: 'Grade A Passports',
+      category: 'documents',
+      price: 1250,
+      originalPrice: 1500,
+      discount: 17,
+      rating: 5,
+      reviews: 124,
+      image: 'assets/image/products/passport.jpg'
+    },
+    {
+      id: 'clone-card',
+      name: 'Premium Clone Card',
+      category: 'cards',
+      price: 1500,
+      originalPrice: 1600,
+      discount: 6,
+      rating: 5,
+      reviews: 89,
+      image: 'assets/image/products/card.jpg'
+    }
+  ]
 };
 
-// Category filtering functionality
-function filterProducts(category) {
-    const productGrid = document.querySelector('.product-grid');
-    
-    // Show loading state
-    productGrid.innerHTML = '<div class="product-loading"><div class="loading-spinner"></div></div>';
-    
-    // Simulate network delay for smooth transition
-    setTimeout(() => {
-        const productsToShow = category === 'all' ? Object.values(products).flat() : products[category] || [];
-        
-        if (productsToShow.length === 0) {
-            productGrid.innerHTML = `
-                <div class="no-products">
-                    <p>No products found in this category.</p>
-                </div>
-            `;
-            return;
-        }
-        
-        productGrid.innerHTML = productsToShow.map(product => `
-        <div class="product-card" data-category="${product.category}">
-            <div class="product-image">
-                <img src="${product.image}" alt="${product.name}" loading="lazy">
-                <button class="quick-view-btn" data-product-id="${product.id}">Quick View</button>
-            </div>
-            <div class="product-info">
-                <h3>${product.name}</h3>
-                <p class="price">${product.price}</p>
-                <p class="description">${product.description}</p>
-                <button class="add-to-cart-btn" data-product-id="${product.id}">Add to Cart</button>
-            </div>
-        </div>
-    `).join('');
-}
-
-// Quick view functionality
-function setupQuickView() {
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('quick-view-btn')) {
-            const productId = e.target.dataset.productId;
-            const product = findProduct(productId);
-            if (product) {
-                showQuickViewModal(product);
-            }
-        }
-    });
-}
-
-function findProduct(productId) {
-    return Object.values(products).flat().find(p => p.id === productId);
-}
-
-function showQuickViewModal(product) {
-    const modal = document.createElement('div');
-    modal.className = 'quick-view-modal';
-    modal.innerHTML = `
-        <div class="modal-content">
-            <button class="close-modal">&times;</button>
-            <div class="product-details">
-                <div class="product-image">
-                    <img src="${product.image}" alt="${product.name}">
-                </div>
-                <div class="product-info">
-                    <h2>${product.name}</h2>
-                    <p class="price">${product.price}</p>
-                    <p class="description">${product.description}</p>
-                    <button class="add-to-cart-btn" data-product-id="${product.id}">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-    `;
-
-    document.body.appendChild(modal);
-    
-    modal.querySelector('.close-modal').addEventListener('click', () => {
-        modal.remove();
-    });
-}
-
-// Initialize
-document.addEventListener('DOMContentLoaded', () => {
-    setupQuickView();
-    
-    // Set up category filter buttons
-    const filterButtons = document.querySelectorAll('.category-filter');
-    filterButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const category = e.target.dataset.category;
-            filterProducts(category);
-            
-            // Update active state of filter buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            e.target.classList.add('active');
-        });
-    });
-    
-    // Show all products initially
-    filterProducts('all');
+// Initialize product filters when DOM loads
+document.addEventListener('DOMContentLoaded', function() {
+  initializeProductFilters();
+  initializeCartFunctionality();
 });
+
+function initializeProductFilters() {
+  const filterButtons = document.querySelectorAll('.category-filter');
+  const productGrid = document.querySelector('.product-grid');
+
+  if (!filterButtons.length || !productGrid) return;
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const category = this.dataset.category;
+
+      // Update active button
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+
+      // Filter products
+      filterProducts(category);
+    });
+  });
+}
+
+function filterProducts(category) {
+  const products = document.querySelectorAll('.product-card, .product');
+
+  products.forEach(product => {
+    if (category === 'all') {
+      product.style.display = 'block';
+    } else {
+      const productCategory = product.dataset.category ||
+        product.querySelector('.product-category')?.textContent.toLowerCase().replace(/\s+/g, '-');
+
+      if (productCategory && productCategory.includes(category)) {
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
+      }
+    }
+  });
+}
+
+function initializeCartFunctionality() {
+  const addToCartButtons = document.querySelectorAll('.add-to-cart-btn, .btn.add');
+
+  addToCartButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      // Add visual feedback
+      const originalText = this.textContent;
+      this.textContent = 'Added!';
+      this.style.background = '#28a745';
+
+      // Reset after 2 seconds
+      setTimeout(() => {
+        this.textContent = originalText;
+        this.style.background = '';
+      }, 2000);
+
+      // Update cart count
+      updateCartCount();
+    });
+  });
+}
+
+function updateCartCount() {
+  const cartCount = document.getElementById('cart-count');
+  if (cartCount) {
+    const currentCount = parseInt(cartCount.textContent) || 0;
+    cartCount.textContent = currentCount + 1;
+  }
+}

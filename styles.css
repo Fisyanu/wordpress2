@@ -862,6 +862,9 @@ input[type="text"], input[type="password"], input[type="email"] { width: 100%; p
 .checkbox { display: inline-flex; gap: 6px; align-items: center; }
 
 /* Small screens nav */
+/* Enhanced Responsive Design for All Devices */
+
+/* Tablet and Mobile Navigation */
 @media (max-width: 840px) {
   .site-nav .menu { display: none; }
   .menu-toggle { display: inline-flex; }
@@ -869,6 +872,210 @@ input[type="text"], input[type="password"], input[type="email"] { width: 100%; p
   .mega { position: static; }
   .mega .panel { border: 0; border-radius: 8px; box-shadow: none; padding: 8px 0; }
   .mega-grid { grid-template-columns: 1fr; }
+  
+  /* Header adjustments */
+  .header-grid {
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+  }
+  
+  .search {
+    order: 3;
+    grid-column: 1 / -1;
+    margin-top: 10px;
+  }
+  
+  .search input {
+    width: 100%;
+  }
+}
+
+/* Mobile-first responsive breakpoints */
+@media (max-width: 768px) {
+  /* Container and spacing */
+  .container {
+    width: 95%;
+    padding: 0 10px;
+  }
+  
+  /* Typography scaling */
+  .hero-heading {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  /* Header countdown */
+  .countdown-flex {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .countdown {
+    gap: 10px;
+  }
+  
+  .countdown .num {
+    font-size: 16px;
+  }
+  
+  .countdown .lbl {
+    font-size: 10px;
+  }
+  
+  /* Navigation menu */
+  .site-nav-bar .menu {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .site-nav-bar .menu a {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+  
+  /* Document section */
+  .document-section {
+    padding: 40px 0;
+    min-height: 400px;
+  }
+  
+  .content-wrapper {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .text-content {
+    padding-right: 0;
+  }
+  
+  .text-content h2 {
+    font-size: 2rem;
+  }
+  
+  .text-content p {
+    font-size: 1rem;
+  }
+  
+  /* Product grid responsive */
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 0 10px;
+  }
+  
+  /* Category filters */
+  .category-filters {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 20px;
+  }
+  
+  .category-btn,
+  .category-filter {
+    width: 100%;
+    padding: 12px 20px;
+  }
+  
+  /* Hero section mobile */
+  .hero {
+    min-height: 50vh;
+    padding: 40px 15px;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  /* Further typography scaling */
+  .hero-heading {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+  
+  .hero p {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Product grid for small screens */
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  /* Button sizing */
+  .btn,
+  .hero-btn-red {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+  
+  /* Countdown adjustments */
+  .countdown {
+    gap: 8px;
+  }
+  
+  .countdown .num {
+    font-size: 14px;
+  }
+  
+  .discount-offer {
+    font-size: 12px;
+  }
+  
+  .discount-btn {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+  
+  /* Header actions */
+  .header-actions {
+    gap: 8px;
+  }
+  
+  .header-actions .call {
+    display: none;
+  }
+  
+  .header-actions .login-btn {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Large desktop screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+  
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  .hero-heading {
+    font-size: 4rem;
+  }
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+  
+  .product-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 /* ===== Homepage Hero Section Styling ===== */
 .hero {
