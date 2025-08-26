@@ -7,7 +7,7 @@ const products = {
             name: "USD 100 Bills",
             price: "$1500",
             category: "counterfeit-notes",
-            image: "assets/image/products/usd-100.jpg",
+            image: "usd-100.jpg",
             description: "High quality USD 100 bills with latest security features"
         },
         {
@@ -15,7 +15,7 @@ const products = {
             name: "EUR 500 Notes",
             price: "$2000",
             category: "counterfeit-notes",
-            image: "assets/image/products/eur-500.jpg",
+            image: "eur-500.jpg",
             description: "Premium quality EUR 500 notes"
         },
         {
@@ -23,7 +23,7 @@ const products = {
             name: "GBP 50 Notes",
             price: "$1800",
             category: "counterfeit-notes",
-            image: "assets/image/products/gbp-50.jpg",
+            image: "gbp-50.jpg",
             description: "High quality British Pound notes"
         }
     ],
@@ -33,7 +33,7 @@ const products = {
             name: "Visa Platinum Card",
             price: "$800",
             category: "clone-cards",
-            image: "assets/image/products/visa-platinum.jpg",
+            image: "visa-platinum.jpg",
             description: "Premium Visa Platinum clone card"
         },
         {
@@ -41,7 +41,7 @@ const products = {
             name: "Mastercard Black",
             price: "$900",
             category: "clone-cards",
-            image: "assets/image/products/mastercard-black.jpg",
+            image: "mastercard-black.jpg",
             description: "Elite Mastercard Black clone card"
         }
     ],
@@ -51,7 +51,7 @@ const products = {
             name: "International Passport",
             price: "$2500",
             category: "documents",
-            image: "assets/image/products/passport.jpg",
+            image: "passport.jpg",
             description: "High quality passport with all security features"
         },
         {
@@ -59,7 +59,7 @@ const products = {
             name: "Driver's License",
             price: "$1200",
             category: "documents",
-            image: "assets/image/products/license.jpg",
+            image: "license.jpg",
             description: "Authentic looking driver's license"
         }
     ]
