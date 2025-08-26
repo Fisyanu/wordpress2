@@ -129,7 +129,7 @@ body {
 
 .document-section::before {
     content: "";
-    background-image: url("../image/background.png");
+    background-image: url("background.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -943,4 +943,3 @@ input[type="text"], input[type="password"], input[type="email"] { width: 100%; p
 .hero .btn:hover {
   background-color: darkred;
 }
-
