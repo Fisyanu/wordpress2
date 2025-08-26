@@ -256,7 +256,7 @@ body {
 /* Document Section Styles */
 .document-section {
   padding: 60px 0;
-  background-image: url('../image/background.png') !important;
+  background-image: url('background.png') !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
